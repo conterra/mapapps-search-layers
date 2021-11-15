@@ -1,0 +1,131 @@
+{
+    "load": {
+        "bundleLocations": [
+            "localbundles",
+            "bundles"
+        ],
+        "allowedBundles": [
+            "system",
+            "console",
+            "notifier",
+            "splashscreen",
+            "templatelayout",
+            "template-seasons",
+            "theme-autumn",
+            "map-init",
+            "map-preload-2D",
+            "toolset",
+            "banner",
+            "mapnavigation",
+            "popups-default",
+            "scalebar",
+            "locateme",
+            "parameter-url",
+            "search-ui",
+            "locator-store",
+            "toc",
+            "sample_helloworld"
+        ]
+    },
+    "bundles": {
+        "banner": {
+            "BannerWidget": {
+                "label": "Developer Network",
+                "image": "resource('${app}:/images/logo_conterra.png')",
+                "imageWidth": 200,
+                "imagePosition": "above",
+                "link": "http://developernetwork.conterra.de"
+            }
+        },
+        "map-init": {
+            "Config": {
+                "basemaps": [
+                    {
+                        "id": "esri_street",
+                        "title": "Straßenkarte (grau)",
+                        "thumbnailUrl": "resource('${app}:/images/streets.png')",
+                        "selected": true,
+                        "basemap": "gray"
+                    },
+                    {
+                        "id": "esri_hybrid",
+                        "title": "Luftbild (hybrid)",
+                        "thumbnailUrl": "resource('${app}:/images/hybrid.png')",
+                        "basemap": "hybrid"
+                    }
+                ],
+                "map": {
+                    "layers": []
+                },
+                "view": {
+                    "viewmode": "2D",
+                    "center": {
+                        "x": 774853,
+                        "y": 6610677,
+                        "spatialReference": 3857
+                    },
+                    "scale": 140000
+                }
+            }
+        },
+        "toc": {
+            "Config": {
+                "showBasemaps" : true,
+                "showLayerLegend": true
+            }
+        },
+        "toolset": {
+            "ToolsetManager": {
+                "toolsets": [
+                    {
+                        "id": "mapview_tools",
+                        "tools": [
+                            "locateMeTool",
+                            "zoomInTool",
+                            "zoomOutTool",
+                            "compassTool",
+                            "restoreInitialViewTool",
+                            "viewmodeSwitcherTool"
+                        ],
+                        "registerWidget": {
+                            "widgetRole": "mapview_tools"
+                        },
+                        "container": "ignore",
+                        "windowType": "container",
+                        "cssClass": "muted",
+                        "tooltipPositions": [
+                            "before",
+                            "above",
+                            "below",
+                            "after"
+                        ]
+                    },
+                    {
+                        "id": "drawer_left",
+                        "title": "Werkzeuge",
+                        "cssClass": "ct-main-app-menu",
+                        "tools": [
+                            "tocToggleTool",
+                            "printingToggleTool",
+                            "sharelinkTool",
+                            "helloTool",
+                            "IMPRINT_Imprint_CustomInfoTool",
+                            "IMPRINT_Imprint_CustomInfoTool_mobile"
+                        ],
+                        "registerWidget": {
+                            "widgetRole": "drawer_button"
+                        },
+                        "container": "ignore",
+                        "windowType": "drawer_left",
+                        "tooltipPositions": [
+                            "after",
+                            "above",
+                            "below",
+                            "before"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
