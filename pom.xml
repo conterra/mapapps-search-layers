@@ -20,8 +20,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.conterra.devnet</groupId>
-    <artifactId>mapapps-remote-project-blueprint</artifactId>
-    <version>4.12.0-SNAPSHOT</version>
+    <artifactId>mapapps-search-layers</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <repositories>
         <repository>
@@ -526,10 +526,10 @@
         </plugins>
     </build>
     <scm>
-        <connection>scm:git:https://github.com/conterra/mapapps-remote-project-blueprint.git</connection>
-        <developerConnection>scm:git:https://github.com/conterra/mapapps-remote-project-blueprint.git
+        <connection>scm:git:https://github.com/conterra/mapapps-search-layers.git</connection>
+        <developerConnection>scm:git:https://github.com/conterra/mapapps-search-layers.git
         </developerConnection>
-        <url>https://github.com/conterra/mapapps-remote-project-blueprint</url>
+        <url>https://github.com/conterra/mapapps-search-layers</url>
         <tag>HEAD</tag>
     </scm>
     <distributionManagement>
@@ -548,11 +548,11 @@
         <root.build.outputPath>${project.build.directory}/webapp</root.build.outputPath>
         <js.build.outputPath>${root.build.outputPath}/js</js.build.outputPath>
 
-        <mapapps.version>4.12.0</mapapps.version>
+        <mapapps.version>4.12.1</mapapps.version>
         <!-- JS lib versions -->
         <apprt.version>${mapapps.version}</apprt.version>
         <!-- java lib versions -->
-        <ct.jsregistry.version>1.4.3</ct.jsregistry.version>
+        <ct.jsregistry.version>1.4.4</ct.jsregistry.version>
         <ct.jsrt-test.version>2.0.2</ct.jsrt-test.version>
 
         <!-- the default app, replaced in the *.html files to switch app names-->
