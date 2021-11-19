@@ -36,9 +36,16 @@ export default class SearchLayersStoreFactory extends SyncInMemoryStore {
                     title: layer.title
                 }
             }
+            // TODO: Find a better solution for non-matching IDs
+            else {
+                return ""
+            }
         })
 
         debugger
+        results = results.filter(e => e)._items;
+        debugger
+
 
         return QueryResults(results);
 }
