@@ -4,13 +4,57 @@
     "title": "${bundleName}",
     "description": "${bundleDescription}",
     "vendor": "con terra GmbH",
-    "keywords": [
-        "sample"
+    "productName": "devnet-mapapps-search-layer-store",
+    "layer": "module",
+    "i18n": [
+        "bundle"
     ],
-    "icon": {},
-    "license": {},
-    "productName": "devnet-mapapps-remote-project-blueprint",
-    "components": [
+    "dependencies": {
 
+    },
+    "components": [
+        {
+            "name": "searchLayerStoreFactory",
+            "provides": [
+                "ct.api.Store"
+            ],
+            "immediate": true,
+            "instanceFactory": true,
+            "properties": {
+                "id": "searchlayersstore",
+                "title": "Layer Suche",
+                "description": "Searching for layers",
+                "useIn": [
+                    "omnisearch",
+                    "search-ui"
+                ],
+                "omniSearchDefaultLabel": "${title}",
+                "omniSearchSearchAttr": "name",
+                "omniSearchLabelAttr": "name",
+                "omniSearchTypingDelay": 500,
+                "metadata": {
+                    "title": "SearchLayersStore",
+                    "name": "title",
+                    "fields": [
+                        {
+                            "title": "ID",
+                            "name": "id",
+                            "type": "string"
+                        },
+                        {
+                            "title": "Layer Name",
+                            "name": "name",
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "references": [
+                {
+                    "name": "_mapWidgetModel",
+                    "providing": "map-widget.MapWidgetModel"
+                }
+            ]
+        }
     ]
 }

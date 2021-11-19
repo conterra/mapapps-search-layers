@@ -24,7 +24,8 @@
             "search-ui",
             "locator-store",
             "toc",
-            "sample_helloworld"
+            "sample_helloworld",
+            "dn_searchlayers"
         ]
     },
     "bundles": {
