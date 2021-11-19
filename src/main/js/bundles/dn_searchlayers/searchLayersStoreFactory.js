@@ -13,37 +13,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import declare from "dojo/_base/declare"
-import ComplexMemory from  "ct/store/ComplexMemory"
+import AsyncStore, {AsyncInMemoryStore} from "store-api/InMemoryStore"
 
-export default declare([], {
-activate(){
-    // check mandatory parameters
-    ct_lang.hasProp(properties, "url", true);
+class SearchLayersStoreFactory {
 
-    // get data
-    return this._createStore();
-},
+    activate() {
+        return this._createStore();
+    }
 
     _createStore() {
         const properties = this._properties || {};
 
-            this._searchLayersStore = new ComplexMemory({
-                id: properties.id,
-                idProperty: "id",
-                metadata: properties.metadata
-            });
+        // this._searchLayersStore = new AsyncInMemoryStore({
+        //     id: properties.id,
+        //     idProperty: "id",
+        //     metadata: properties.metadata
+        // });
 
-        this._searchLayersStore.add({
-            id: layer.id,
-            title: layer.title
-        });
+        // debugger
+        // console.info("Created Store")
+    }
 
-    },
     getLayers(mapModel) {
         const layers = mapModel.map.layers;
     }
-});
+}
+
+export default SearchLayersStoreFactory;
 
 
 

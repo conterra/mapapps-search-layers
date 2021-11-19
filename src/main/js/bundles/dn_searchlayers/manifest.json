@@ -10,16 +10,16 @@
         "bundle"
     ],
     "dependencies": {
-
+        "store-api": "^4.12.1",
+        "esri": "~4.20.0"
     },
     "components": [
         {
-            "name": "searchLayerStoreFactory",
+            "name": "searchLayersStoreFactory",
             "provides": [
                 "ct.api.Store"
             ],
             "immediate": true,
-            "instanceFactory": true,
             "properties": {
                 "id": "searchlayersstore",
                 "title": "Layer Suche",
@@ -35,6 +35,7 @@
                 "metadata": {
                     "title": "SearchLayersStore",
                     "name": "title",
+                    "idProperty": "test",
                     "fields": [
                         {
                             "title": "ID",
