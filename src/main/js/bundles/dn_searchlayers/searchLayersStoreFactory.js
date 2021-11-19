@@ -34,7 +34,7 @@ export default class SearchLayersStoreFactory extends SyncInMemoryStore {
             }
         })
 
-        return QueryResults.wrapPromise(results);
+        return QueryResults(results);
 }
 }
 
