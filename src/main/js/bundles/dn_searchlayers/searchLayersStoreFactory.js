@@ -27,12 +27,18 @@ export default class SearchLayersStoreFactory extends SyncInMemoryStore {
         const flattenLayers = layers.flatten(function(item){
             return item.layers || item.sublayers;
         });
-        let results = flattenLayers.map((layer)=>{
-            return {
-                id: layer.id,
-                title: layer.title
+
+        let qParam = query.title.$suggest;
+        let results = flattenLayers.map((layer) => {
+            if (layer.title.includes(qParam)){
+                return {
+                    id: layer.id,
+                    title: layer.title
+                }
             }
         })
+
+        debugger
 
         return QueryResults(results);
 }
