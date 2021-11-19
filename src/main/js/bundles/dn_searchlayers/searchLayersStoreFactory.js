@@ -13,33 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import AsyncStore, {AsyncInMemoryStore} from "store-api/InMemoryStore"
+import {SyncInMemoryStore} from "store-api/InMemoryStore"
+import QueryResults from "store-api/QueryResults";
 
-class SearchLayersStoreFactory {
-
-    activate() {
-        return this._createStore();
+export default class SearchLayersStoreFactory extends SyncInMemoryStore {
+    constructor(opts) {
+        super(opts);
     }
 
-    _createStore() {
-        const properties = this._properties || {};
+    query(query = {}, options = {}) {
+        const mapWidgetModel = this._mapWidgetModel;
+        const layers = mapWidgetModel.map.layers;
+        const flattenLayers = layers.flatten(function(item){
+            return item.layers || item.sublayers;
+        });
+        let results = flattenLayers.map((layer)=>{
+            return {
+                id: layer.id,
+                title: layer.title
+            }
+        })
 
-        // this._searchLayersStore = new AsyncInMemoryStore({
-        //     id: properties.id,
-        //     idProperty: "id",
-        //     metadata: properties.metadata
-        // });
-
-        // debugger
-        // console.info("Created Store")
-    }
-
-    getLayers(mapModel) {
-        const layers = mapModel.map.layers;
-    }
+        return QueryResults.wrapPromise(results);
+}
 }
 
-export default SearchLayersStoreFactory;
 
 
 

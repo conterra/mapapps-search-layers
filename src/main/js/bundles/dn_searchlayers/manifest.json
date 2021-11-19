@@ -19,7 +19,7 @@
             "provides": [
                 "ct.api.Store"
             ],
-            "immediate": true,
+            "propertiesConstructor": true,
             "properties": {
                 "id": "searchlayersstore",
                 "title": "Layer Suche",
@@ -29,13 +29,10 @@
                     "search-ui"
                 ],
                 "omniSearchDefaultLabel": "${title}",
-                "omniSearchSearchAttr": "name",
-                "omniSearchLabelAttr": "name",
+                "omniSearchSearchAttr": "title",
+                "omniSearchLabelAttr": "title",
                 "omniSearchTypingDelay": 500,
                 "metadata": {
-                    "title": "SearchLayersStore",
-                    "name": "title",
-                    "idProperty": "test",
                     "fields": [
                         {
                             "title": "ID",
@@ -44,7 +41,7 @@
                         },
                         {
                             "title": "Layer Name",
-                            "name": "name",
+                            "name": "title",
                             "type": "string"
                         }
                     ]
