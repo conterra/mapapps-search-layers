@@ -15,7 +15,7 @@
  */
 import {SyncInMemoryStore} from "store-api/InMemoryStore"
 import QueryResults from "store-api/QueryResults";
-
+//import searchLayerActivateAction from "searchLayerActivateAction";
 export default class SearchLayersStoreFactory extends SyncInMemoryStore {
     constructor(opts) {
         super(opts);
@@ -24,32 +24,60 @@ export default class SearchLayersStoreFactory extends SyncInMemoryStore {
     query(query = {}, options = {}) {
         const mapWidgetModel = this._mapWidgetModel;
         const layers = mapWidgetModel.map.layers;
-        const flattenLayers = layers.flatten(function(item){
+        const flattenLayers = layers.flatten(function (item) {
             return item.layers || item.sublayers;
         });
 
         let qParam = query.title.$suggest;
         let results = flattenLayers.map((layer) => {
-            if (layer.title.includes(qParam)){
+            if (layer.title.includes(qParam)) {
                 return {
                     id: layer.id,
                     title: layer.title
                 }
             }
-            // TODO: Find a better solution for non-matching IDs
-            else {
-                return ""
-            }
         })
 
-        debugger
         results = results.filter(e => e)._items;
-        debugger
-
 
         return QueryResults(results);
+    }
+
+    get(id, options = {}) {
+
+        const mapWidgetModel = this._mapWidgetModel;
+        const layers = mapWidgetModel.map.layers;
+        let ergebnis;
+
+        // greife auf mapmodel zu und finde layer mit der id die übergeben wird
+        // return diesen layer
+
+        console.info(id);
+
+        layers.items.forEach(layer => {
+
+            console.info(layer.id)
+            if (layer.id.includes(id)) {
+
+                 ergebnis = layer;
+
+            } else {
+                console.info("Die Layer beinhalten die Id nicht.");
+            }
+        }
+        );
+
+        console.info(ergebnis.id);
+        return ergebnis;
+
+        //ergebnis.trigger([searchlayeractivateaction]);
+
+
+    }
+
+
 }
-}
+
 
 
 
