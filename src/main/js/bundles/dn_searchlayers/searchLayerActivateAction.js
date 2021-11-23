@@ -22,7 +22,7 @@ export default class SearchLayerActivateAction {
     }
 
     // trigger method which is called with the search result items
-    trigger(options) {
+        trigger(options) {
         debugger
 
         //const items = options.items;

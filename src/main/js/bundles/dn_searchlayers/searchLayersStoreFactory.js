@@ -70,6 +70,7 @@ export default class SearchLayersStoreFactory extends SyncInMemoryStore {
         console.info(ergebnis.id);
         return ergebnis;
 
+
         //ergebnis.trigger([searchlayeractivateaction]);
 
 

@@ -32,6 +32,7 @@
         ]
 
     },
+
     "bundles": {
         "banner": {
             "BannerWidget": {
@@ -40,6 +41,17 @@
                 "imageWidth": 200,
                 "imagePosition": "above",
                 "link": "http://developernetwork.conterra.de"
+            }
+        },
+        "search-ui": {
+            "Config": {
+                "actions": [
+                    "highlight",
+                    "zoomto",
+                    "openpopup",
+                    "searchlayeractivateaction"
+                ]
+
             }
         },
         "map-init": {
