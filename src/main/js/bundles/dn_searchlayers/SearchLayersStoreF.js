@@ -16,7 +16,7 @@
 import {SyncInMemoryStore} from "store-api/InMemoryStore"
 import QueryResults from "store-api/QueryResults";
 //import searchLayerActivateAction from "searchLayerActivateAction";
-export default class SearchLayersStoreFactory extends SyncInMemoryStore {
+export default class SearchLayersStoreF extends SyncInMemoryStore {
     constructor(opts) {
         super(opts);
     }
@@ -53,10 +53,11 @@ export default class SearchLayersStoreFactory extends SyncInMemoryStore {
         // return diesen layer
 
         console.info(id);
-
+debugger
         layers.items.forEach(layer => {
 
             console.info(layer.id)
+
             if (layer.id.includes(id)) {
 
                  ergebnis = layer;
@@ -66,7 +67,7 @@ export default class SearchLayersStoreFactory extends SyncInMemoryStore {
             }
         }
         );
-
+debugger
         console.info(ergebnis.id);
         return ergebnis;
 

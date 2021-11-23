@@ -23,7 +23,7 @@
             }
         },
         {
-            "name": "searchLayersStoreFactory",
+            "name": "SearchLayersStoreF",
             "provides": [
                 "ct.api.Store"
             ],

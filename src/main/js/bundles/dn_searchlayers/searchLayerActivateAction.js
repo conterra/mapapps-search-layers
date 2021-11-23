@@ -24,13 +24,37 @@ export default class SearchLayerActivateAction {
     // trigger method which is called with the search result items
         trigger(options) {
         debugger
+           // const mapWidgetModel = this._mapWidgetModel;
+            //const layers = mapWidgetModel.map.layers;
 
         //const items = options.items;
         //const someProperty = options["searchlayeractivateaction"];
         console.info("hi");
+        debugger
+        if (//Köln 3
+            options.items[0].id == options.items[0].layers.items[0].parent.id){
+            options.items[0].visible=true;
+            options.items[0].layers.items[0].visible= true;
+            options.items[0].layers.items[1].visible= true;
+            options.items[0].layers.items[2].visible= true;
+        }
+        else{
+            console.info("nope");
+        }
         // Do something with the items...
         //map.layers.layer.visible = true;
+            //const mapWidgetModel = this._mapWidgetModel;
+            //const layers = mapWidgetModel.map.layers;
+            //const id = layer.get;
+            //debugger
+            //if (options.id === layers.id){
 
+              // layers.visible=true;
+               //console.info(layers.id);
+
+            //} else {
+            //    console.info("Kein Trigger");
+            //}
     }
     // actionService;
     //trigger([searchlayeractivateaction]);
