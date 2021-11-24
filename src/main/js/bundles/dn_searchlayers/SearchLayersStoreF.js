@@ -44,50 +44,19 @@ export default class SearchLayersStoreF extends SyncInMemoryStore {
     }
 
     get(id, options = {}) {
-
         const mapWidgetModel = this._mapWidgetModel;
         const layers = mapWidgetModel.map.layers;
-        let ergebnis;
 
-        // greife auf mapmodel zu und finde layer mit der id die übergeben wird
-        // return diesen layer
+        const flattenLayers = layers.flatten(function (item) {
+            return item.layers || item.sublayers;
+        });
 
-        console.info(id);
-debugger
-        layers.items.forEach(layer => {
-
-            console.info(layer.id)
-
-            if (layer.id.includes(id)) {
-
-                 ergebnis = layer;
-
-            } else {
-                if ((layer.layers.items[0].id.includes(id))||
-                    (layer.layers.items[1].id.includes(id))||
-                    (layer.layers.items[2].id.includes(id))){
-                    //(layer.layers.items[1].layers.items[0].id.includes(id))||
-                    //(layer.layers.items[1].layers.items[1].id.includes(id))||
-                    //(layer.layers.items[1].layers.items[2].id.includes(id))||
-                    //(layer.layers.items[2].layers.items[0].id.includes(id))||
-                    //(layer.layers.items[2].layers.items[1].id.includes(id))||
-                    //(layer.layers.items[2].layers.items[2].id.includes(id))){
-                    console.info("2. if");
-                    ergebnis = layer;
-                }
-                else{
-                   console.info("keine Übereinstimmung")
-                }
+        flattenLayers.items.forEach(item => {
+            if (item.id === id) {
+                return item
             }
-        }
-        );
-debugger
-        console.info(ergebnis.id);
-        return ergebnis;
-
+        })
     }
-
-
 }
 
 

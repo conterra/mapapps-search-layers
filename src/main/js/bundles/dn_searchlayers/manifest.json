@@ -18,9 +18,17 @@
             "name": "searchLayerActivateAction",
             "provides": "map-actions.Action",
             "properties": {
-                "handleStores": ["searchlayersstore"],
+                "handleStores": [
+                    "searchlayersstore"
+                ],
                 "activate": true
-            }
+            },
+            "references": [
+                {
+                    "name": "_mapWidgetModel",
+                    "providing": "map-widget.MapWidgetModel"
+                }
+            ]
         },
         {
             "name": "SearchLayersStoreF",
