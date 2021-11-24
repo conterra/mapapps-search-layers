@@ -63,17 +63,27 @@ debugger
                  ergebnis = layer;
 
             } else {
-                console.info("Die Layer beinhalten die Id nicht.");
+                if ((layer.layers.items[0].id.includes(id))||
+                    (layer.layers.items[1].id.includes(id))||
+                    (layer.layers.items[2].id.includes(id))){
+                    //(layer.layers.items[1].layers.items[0].id.includes(id))||
+                    //(layer.layers.items[1].layers.items[1].id.includes(id))||
+                    //(layer.layers.items[1].layers.items[2].id.includes(id))||
+                    //(layer.layers.items[2].layers.items[0].id.includes(id))||
+                    //(layer.layers.items[2].layers.items[1].id.includes(id))||
+                    //(layer.layers.items[2].layers.items[2].id.includes(id))){
+                    console.info("2. if");
+                    ergebnis = layer;
+                }
+                else{
+                   console.info("keine Übereinstimmung")
+                }
             }
         }
         );
 debugger
         console.info(ergebnis.id);
         return ergebnis;
-
-
-        //ergebnis.trigger([searchlayeractivateaction]);
-
 
     }
 
