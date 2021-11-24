@@ -15,7 +15,7 @@
             "map-init",
             "map-preload-2D",
             "toolset",
-            "banner",
+            //"banner",
             "mapnavigation",
             "popups-default",
             "scalebar",
@@ -83,7 +83,7 @@
                                     "title": "${map.koeln2.libraries.title}",
                                     "url": "https://services.arcgis.com/ObdAEOfl1Z5LP2D0/arcgis/rest/services/Köln/FeatureServer/1",
                                     "type": "AGS_FEATURE",
-                                    "visible": true,
+                                    "visible": false,
                                     "popupTemplate": {
                                         "title": "{NAME_LANG}",
                                         "content": [
@@ -111,7 +111,7 @@
                                     "title": "${map.koeln2.museums.title}",
                                     "url": "https://services.arcgis.com/ObdAEOfl1Z5LP2D0/arcgis/rest/services/Köln/FeatureServer/2",
                                     "type": "AGS_FEATURE",
-                                    "visible": true,
+                                    "visible": false,
                                     "popupTemplate": {
                                         "title": "Museum",
                                         "content": [
@@ -178,7 +178,7 @@
                             "id": "koeln3",
                             "title": "${map.koeln3.title}",
                             "type": "GROUP",
-                            "visible": true,
+                            "visible": false,
                             "layers": [
                                 {
                                     "title": "${map.koeln3.sights.title}",
@@ -263,7 +263,7 @@
                             "id": "koeln1",
                             "title": "${map.koeln1.title}",
                             "type": "GROUP",
-                            "visible": true,
+                            "visible": false,
                             "layers": [
                                 {
                                     "title": "${map.koeln1.districts.title}",
