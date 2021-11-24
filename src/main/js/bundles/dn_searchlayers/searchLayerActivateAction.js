@@ -40,22 +40,7 @@ export default class SearchLayerActivateAction {
                 }
             }
         })
-        // //Parentlayer
-        // if (queryID === options.items[0].layers.items[0].parent.id) {
-        //     options.items[0].visible = true;
-        //
-        //
-        //     options.items[0].layers.items.forEach(item => {
-        //
-        //         // TODO: Hier der korrekte Vergleich
-        //         if (item.parent.layers.items[0].id === options.items[0].layers.items[0].id) {
-        //             item.visible = true;
-        //         }
-        //     })
-        //     } else {
-        //         console.info("nope");
-        //     }
-        // }
+
     }
 
 }

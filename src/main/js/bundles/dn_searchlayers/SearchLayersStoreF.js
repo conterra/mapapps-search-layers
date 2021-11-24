@@ -21,6 +21,9 @@ export default class SearchLayersStoreF extends SyncInMemoryStore {
         super(opts);
     }
 
+    /**
+     * @param {{a: number}|{b: number}} query
+     */
     query(query = {}, options = {}) {
         const mapWidgetModel = this._mapWidgetModel;
         const layers = mapWidgetModel.map.layers;
@@ -30,6 +33,7 @@ export default class SearchLayersStoreF extends SyncInMemoryStore {
 
         let qParam = query.title.$suggest;
         let results = flattenLayers.map((layer) => {
+
             if (layer.title.includes(qParam)) {
                 return {
                     id: layer.id,
@@ -43,6 +47,10 @@ export default class SearchLayersStoreF extends SyncInMemoryStore {
         return QueryResults(results);
     }
 
+    /**
+     * @param id String Id of search feature
+     * @param options Object
+     */
     get(id, options = {}) {
         const mapWidgetModel = this._mapWidgetModel;
         const layers = mapWidgetModel.map.layers;
