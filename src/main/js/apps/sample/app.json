@@ -74,6 +74,18 @@
                 "map": {
                     "layers": [
                         {
+                            "id": "grenzen1",
+                            "title": "Grenzen 1",
+                            "type": "AGS_DYNAMIC",
+                            "url": "https://services.conterra.de/arcgis/rest/services/common/grenzen/MapServer"
+                        },
+                        {
+                            "id": "grenzen2",
+                            "title": "Grenzen 2",
+                            "type": "AGS_DYNAMIC",
+                            "url": "https://services.conterra.de/arcgis/rest/services/common/grenzen/MapServer"
+                        },
+                        {
                             "id": "koeln2",
                             "title": "${map.koeln2.title}",
                             "description": "${map.koeln2.description}",
