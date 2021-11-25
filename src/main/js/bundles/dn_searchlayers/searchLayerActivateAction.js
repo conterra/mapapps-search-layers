@@ -20,26 +20,29 @@ export default class SearchLayerActivateAction {
         this.id = "searchlayeractivateaction";
     }
 
-    // trigger method which is called with the search result items
+    // trigger method which is called with the search result itemsGemeinden
     trigger(options) {
+        if (!options || !options.items) {
+            throw new Error(
+                "SearchLayerActivateAction.trigger: " +
+                "Cannot execute SearchLayerActivateAction since no trigger options with 'items'" +
+                "property have been specified."
+            );
+        }
+
+        if (!options.items.length) {
+            return;
+        }
+
+        if (options.source?.id !== "searchlayersstore") {
+            return;
+        }
+
         console.info("trigger")
-        const mapModel = this._mapWidgetModel;
+        const layer = options.items[0];
+        layer.visible = true;
+        // rekursiv müssen alle Parents aktiviert werden
 
-        const layers = mapModel.map.layers;
-        const queryID = options.items[0].id
-
-        const flattenLayers = layers.flatten(function (item) {
-            return item.layers || item.sublayers;
-        });
-
-        flattenLayers.items.forEach(layer => {
-            if (layer.id === queryID) {
-                layer.visible = true;
-                if(layer.parent.id !== undefined){
-                   layer.parent.visible = true;
-                }
-            }
-        })
     }
 }
 

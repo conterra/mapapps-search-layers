@@ -51,8 +51,8 @@
                 "metadata": {
                     "fields": [
                         {
-                            "title": "ID",
-                            "name": "id",
+                            "title": "UID",
+                            "name": "uid",
                             "type": "string"
                         },
                         {

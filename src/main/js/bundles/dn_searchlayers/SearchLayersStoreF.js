@@ -22,27 +22,23 @@ export default class SearchLayersStoreF extends SyncInMemoryStore {
     }
 
     query(query = {}, options = {}) {
+
         console.info("query")
         const mapWidgetModel = this._mapWidgetModel;
         const layers = mapWidgetModel.map.layers;
+
+        // in eigene Methode auslagern
         const flattenLayers = layers.flatten(function (item) {
             return item.layers || item.sublayers;
         });
 
         let qParam = query.title.$suggest;
-        let results = flattenLayers.map((layer) => {
-
-            if (layer.title.includes(qParam)) {
-                return {
-                    id: layer.id,
-                    title: layer.title
-                }
-            }
+        let results = flattenLayers.filter((layer) => {
+            // TODO: lowercase vergleichen
+            return layer.title.includes(qParam);
         })
 
-        results = results.filter(e => e)._items;
-
-        return QueryResults(results);
+        return QueryResults(results.toArray());
     }
 
     get(id, options = {}) {
@@ -50,14 +46,13 @@ export default class SearchLayersStoreF extends SyncInMemoryStore {
         const mapWidgetModel = this._mapWidgetModel;
         const layers = mapWidgetModel.map.layers;
 
+        // in eigene Methode auslagern
         const flattenLayers = layers.flatten(function (item) {
             return item.layers || item.sublayers;
         });
 
-        flattenLayers.items.forEach(item => {
-            if (item.id === id) {
-                return item
-            }
+        return flattenLayers.items.find(item => {
+            return item.uid === id;
         })
     }
 }
