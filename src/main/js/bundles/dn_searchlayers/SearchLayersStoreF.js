@@ -15,16 +15,14 @@
  */
 import {SyncInMemoryStore} from "store-api/InMemoryStore"
 import QueryResults from "store-api/QueryResults";
-//import searchLayerActivateAction from "searchLayerActivateAction";
+
 export default class SearchLayersStoreF extends SyncInMemoryStore {
     constructor(opts) {
         super(opts);
     }
 
-    /**
-     * @param {{a: number}|{b: number}} query
-     */
     query(query = {}, options = {}) {
+        console.info("query")
         const mapWidgetModel = this._mapWidgetModel;
         const layers = mapWidgetModel.map.layers;
         const flattenLayers = layers.flatten(function (item) {
@@ -47,11 +45,8 @@ export default class SearchLayersStoreF extends SyncInMemoryStore {
         return QueryResults(results);
     }
 
-    /**
-     * @param id String Id of search feature
-     * @param options Object
-     */
     get(id, options = {}) {
+        console.info("get")
         const mapWidgetModel = this._mapWidgetModel;
         const layers = mapWidgetModel.map.layers;
 

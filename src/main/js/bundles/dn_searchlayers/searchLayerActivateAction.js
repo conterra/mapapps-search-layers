@@ -22,11 +22,11 @@ export default class SearchLayerActivateAction {
 
     // trigger method which is called with the search result items
     trigger(options) {
+        console.info("trigger")
         const mapModel = this._mapWidgetModel;
 
         const layers = mapModel.map.layers;
         const queryID = options.items[0].id
-        debugger
 
         const flattenLayers = layers.flatten(function (item) {
             return item.layers || item.sublayers;
@@ -40,8 +40,6 @@ export default class SearchLayerActivateAction {
                 }
             }
         })
-
     }
-
 }
 
