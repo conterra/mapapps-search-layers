@@ -44,8 +44,19 @@ export default class SearchLayersStore extends SyncInMemoryStore {
         let queryParameter = query.title.$suggest;
 
         let results = flattenLayers.filter((layer) => {
-            // Convert both search ui input and queryParameter to lowercase to make search case insensitiv
-            return layer.title.toLowerCase().includes(queryParameter.toLowerCase());
+            if(layer.title.toLowerCase().includes(queryParameter.toLowerCase())){
+               return layer.title.toLowerCase().includes(queryParameter.toLowerCase());
+            }else{
+                if(layer.id.includes(queryParameter)){
+                  return  layer.id.includes(queryParameter);
+                }
+                else{
+                    if(layer.description?.toLowerCase().includes(queryParameter.toLowerCase())){
+                      return layer.description?.toLowerCase().includes(queryParameter.toLowerCase());
+                    }
+                }
+            }
+
         })
 
         return QueryResults(results.toArray());

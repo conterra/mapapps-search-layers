@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-export default class SearchLayerActivateAction {
+ export default class SearchLayerActivateAction {
 
     constructor() {
         this.id = "searchlayeractivateaction";
@@ -57,4 +57,3 @@ export default class SearchLayerActivateAction {
         }
     }
 }
-
