@@ -16,43 +16,50 @@
 import {SyncInMemoryStore} from "store-api/InMemoryStore"
 import QueryResults from "store-api/QueryResults";
 
-export default class SearchLayersStoreF extends SyncInMemoryStore {
+export default class SearchLayersStore extends SyncInMemoryStore {
+
     constructor(opts) {
         super(opts);
     }
 
-    query(query = {}, options = {}) {
 
-        console.info("query")
+    /**
+     * Function used to flatten layer structure of arbitrary depth to a depth of one
+     *
+     * @param layers Esri layer object
+     * @returns Array Array containing layer and all its sublayers
+     */
+    flattenLayers(layers) {
+        return layers.flatten(item => {
+           return item.layers || item.sublayer;
+        });
+    }
+
+    query(query = {}, options = {}) {
         const mapWidgetModel = this._mapWidgetModel;
         const layers = mapWidgetModel.map.layers;
 
-        // in eigene Methode auslagern
-        const flattenLayers = layers.flatten(function (item) {
-            return item.layers || item.sublayers;
-        });
+        const flattenLayers = this.flattenLayers(layers);
 
-        let qParam = query.title.$suggest;
+        let queryParameter = query.title.$suggest;
+
         let results = flattenLayers.filter((layer) => {
-            // TODO: lowercase vergleichen
-            return layer.title.includes(qParam);
+            // Convert both search ui input and queryParameter to lowercase to make search case insensitiv
+            return layer.title.toLowerCase().includes(queryParameter.toLowerCase());
         })
 
         return QueryResults(results.toArray());
     }
 
-    get(id, options = {}) {
+    get(uid, options = {}) {
         console.info("get")
         const mapWidgetModel = this._mapWidgetModel;
         const layers = mapWidgetModel.map.layers;
 
-        // in eigene Methode auslagern
-        const flattenLayers = layers.flatten(function (item) {
-            return item.layers || item.sublayers;
-        });
+        const flattenLayers = this.flattenLayers(layers);
 
         return flattenLayers.items.find(item => {
-            return item.uid === id;
+            return item.uid === uid;
         })
     }
 }

@@ -46,8 +46,6 @@
         "search-ui": {
             "Config": {
                 "actions": [
-                    "highlight",
-                    "zoomto",
                     "openpopup",
                     "searchlayeractivateaction"
                 ]

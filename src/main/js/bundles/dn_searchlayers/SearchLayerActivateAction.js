@@ -15,12 +15,12 @@
  */
 
 export default class SearchLayerActivateAction {
+
     constructor() {
-        // unique ID of the action
         this.id = "searchlayeractivateaction";
     }
 
-    // trigger method which is called with the search result itemsGemeinden
+
     trigger(options) {
         if (!options || !options.items) {
             throw new Error(
@@ -38,11 +38,23 @@ export default class SearchLayerActivateAction {
             return;
         }
 
-        console.info("trigger")
         const layer = options.items[0];
-        layer.visible = true;
-        // rekursiv müssen alle Parents aktiviert werden
+        this.recursiveParentVisibility(layer);
+    }
 
+    /**
+     * Function used to recursively make all parent layers of a layer visible
+     *
+     * @param layer Esri Layer which has to made visible, including all parents
+     */
+    recursiveParentVisibility(layer){
+        if (!layer.parent.id){
+            layer.visible = true;
+        }
+        else {
+            layer.visible = true;
+            this.recursiveParentVisibility(layer.parent);
+        }
     }
 }
 

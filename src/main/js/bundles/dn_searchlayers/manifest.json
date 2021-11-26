@@ -15,7 +15,7 @@
     },
     "components": [
         {
-            "name": "searchLayerActivateAction",
+            "name": "SearchLayerActivateAction",
             "provides": "map-actions.Action",
             "properties": {
                 "handleStores": [
@@ -31,7 +31,7 @@
             ]
         },
         {
-            "name": "SearchLayersStoreF",
+            "name": "SearchLayersStore",
             "provides": [
                 "ct.api.Store"
             ],

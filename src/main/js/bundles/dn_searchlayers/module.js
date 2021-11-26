@@ -17,5 +17,5 @@
 
 import ".";
 import "ct/tools/Tool";
-import "./SearchLayersStoreF";
+import "./SearchLayersStore";
 
