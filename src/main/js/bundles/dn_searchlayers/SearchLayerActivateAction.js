@@ -48,12 +48,26 @@
      * @param layer Esri Layer which has to made visible, including all parents
      */
     recursiveParentVisibility(layer){
+        const expander= this._tocItemExpander
+        const mapWidgetModel = this._mapWidgetModel;
+        const layers = mapWidgetModel.map.allLayers;
+
         if (!layer.parent.id){
             layer.visible = true;
+            layer.expanded=true;
+            if (layer.expanded) {
+                const tocModelItem = expander._getTocModelItem(layer.id);
+                tocModelItem.open = true;
+            }
         }
         else {
             layer.visible = true;
+            layer.expanded = true;
+            if (layer.expanded) {
+                const tocModelItem = expander._getTocModelItem(layer.id);
+                tocModelItem.open = true;
             this.recursiveParentVisibility(layer.parent);
         }
     }
-}
+
+}}

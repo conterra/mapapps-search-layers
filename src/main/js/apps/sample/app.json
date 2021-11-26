@@ -24,6 +24,7 @@
             "search-ui",
             "locator-store",
             "toc",
+            "dn_tocexpand",
             "dn_searchlayers",
             "agssearch"
         ],
@@ -75,12 +76,14 @@
                             "id": "grenzen1",
                             "title": "Grenzen 1",
                             "type": "AGS_DYNAMIC",
+                            "expanded": false,
                             "url": "https://services.conterra.de/arcgis/rest/services/common/grenzen/MapServer"
                         },
                         {
                             "id": "grenzen2",
                             "title": "Grenzen 2",
                             "type": "AGS_DYNAMIC",
+                            "expanded": true,
                             "url": "https://services.conterra.de/arcgis/rest/services/common/grenzen/MapServer"
                         },
                         {
@@ -88,6 +91,7 @@
                             "title": "${map.koeln2.title}",
                             "description": "${map.koeln2.description}",
                             "type": "GROUP",
+                            "expanded": true,
                             "layers": [
                                 {
                                     "title": "${map.koeln2.libraries.title}",
@@ -188,6 +192,7 @@
                             "id": "koeln3",
                             "title": "${map.koeln3.title}",
                             "type": "GROUP",
+                            "expanded": true,
                             "visible": false,
                             "layers": [
                                 {
@@ -273,6 +278,7 @@
                             "id": "koeln1",
                             "title": "${map.koeln1.title}",
                             "type": "GROUP",
+                            "expanded": true,
                             "visible": false,
                             "layers": [
                                 {

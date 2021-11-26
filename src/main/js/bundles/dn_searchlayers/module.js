@@ -18,4 +18,5 @@
 import ".";
 import "ct/tools/Tool";
 import "./SearchLayersStore";
+import "./TocItemExpander";
 
