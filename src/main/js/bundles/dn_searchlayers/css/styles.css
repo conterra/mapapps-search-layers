@@ -13,6 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-.ctAppRoot .toc-window .ct-toc__layers .ct-toc__layer-tree-item.highlight {
-    background-color: green;
+.ctAppRoot.autumn .toc-window .ct-toc__layers .ct-toc__layer-tree-item.highlight {
+    background-color: #2980b9;
+    color: #fff
 }
+
