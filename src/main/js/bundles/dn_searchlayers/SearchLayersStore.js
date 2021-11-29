@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import {SyncInMemoryStore} from "store-api/InMemoryStore"
+import {SyncInMemoryStore} from "store-api/InMemoryStore";
 import QueryResults from "store-api/QueryResults";
 
 export default class SearchLayersStore extends SyncInMemoryStore {
@@ -26,53 +26,38 @@ export default class SearchLayersStore extends SyncInMemoryStore {
     /**
      * Function used to flatten layer structure of arbitrary depth to a depth of one
      *
-     * @param layers Esri layer object
-     * @returns Array Array containing layer and all its sublayers
+     * @param layers Collection of map layers
+     * @returns esri/core/Collection  containing layer and all its sublayers
      */
-    flattenLayers(layers) {
-        return layers.flatten(item => {
-           return item.layers || item.sublayer;
-        });
+    _getFlattenLayers(layers) {
+        return layers.flatten(item => item.layers || item.sublayers);
     }
 
     query(query = {}, options = {}) {
         const mapWidgetModel = this._mapWidgetModel;
         const layers = mapWidgetModel.map.layers;
+        const flattenLayers = this._getFlattenLayers(layers);
+        const searchString = query?.title?.$suggest;
 
-        const flattenLayers = this.flattenLayers(layers);
+        const results = flattenLayers.filter((layer) => {
+            const titleContainsSearchString = layer.title.toLowerCase().includes(searchString.toLowerCase());
+            const idContainsSearchString = layer.id.toString().includes(searchString);
+            const descriptionContainsSearchString =
+                layer.description?.toLowerCase().includes(searchString.toLowerCase());
 
-        let queryParameter = query.title.$suggest;
-
-        let results = flattenLayers.filter((layer) => {
-            if(layer.title.toLowerCase().includes(queryParameter.toLowerCase())){
-               return layer.title.toLowerCase().includes(queryParameter.toLowerCase());
-            }else{
-                if(layer.id.includes(queryParameter)){
-                  return  layer.id.includes(queryParameter);
-                }
-                else{
-                    if(layer.description?.toLowerCase().includes(queryParameter.toLowerCase())){
-                      return layer.description?.toLowerCase().includes(queryParameter.toLowerCase());
-                    }
-                }
-            }
-
-        })
+            return titleContainsSearchString || idContainsSearchString || descriptionContainsSearchString;
+        });
 
         return QueryResults(results.toArray());
     }
 
     get(uid, options = {}) {
-        console.info("get")
         const mapWidgetModel = this._mapWidgetModel;
         const layers = mapWidgetModel.map.layers;
-
-        const flattenLayers = this.flattenLayers(layers);
-
-        return flattenLayers.items.find(item => {
-            return item.uid === uid;
-        })
+        const flattenLayers = this._getFlattenLayers(layers);
+        return flattenLayers.items.find(item => item.uid === uid);
     }
+
 }
 
 
