@@ -71,16 +71,6 @@
                             "type": "string"
                         },
                         {
-                            "title": "ID",
-                            "name": "id",
-                            "type": "string"
-                        },
-                        {
-                            "title": "Description",
-                            "name": "description",
-                            "type": "string"
-                        },
-                        {
                             "title": "Layer Name",
                             "name": "title",
                             "type": "string"
