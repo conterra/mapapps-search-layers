@@ -39,7 +39,7 @@ export default class SearchLayerActivateAction {
         }
 
         const layer = options.items[0];
-        this.changePropsForEveryParent(layer);Bildung und Kultur
+        this.changePropsForEveryLayer(layer);
     }
 
     /**
@@ -63,7 +63,7 @@ export default class SearchLayerActivateAction {
 
         // if layer has parent call method again
         if (layer.parent) {
-            this.changePropsForEveryParent(layer.parent);
+            this.changePropsForEveryLayer(layer.parent);
         }
     }
 
