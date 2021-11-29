@@ -15,5 +15,5 @@
  */
 import ".";
 import "./SearchLayersStore";
+import "./ActivateLayerAction";
 import "ct/tools/Tool";
-

@@ -48,7 +48,7 @@
             "Config": {
                 "actions": [
                     "openpopup",
-                    "searchlayeractivateaction"
+                    "activatelayer"
                 ]
 
             }

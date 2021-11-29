@@ -15,12 +15,11 @@
  */
 import async from "apprt-core/async";
 
-export default class SearchLayerActivateAction {
+export default class ActivateLayerAction {
 
     constructor() {
-        this.id = "searchlayeractivateaction";
+        this.id = "activatelayer";
     }
-
 
     trigger(options) {
         if (!options || !options.items) {

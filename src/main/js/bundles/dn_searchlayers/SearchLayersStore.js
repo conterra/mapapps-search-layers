@@ -22,7 +22,6 @@ export default class SearchLayersStore extends SyncInMemoryStore {
         super(opts);
     }
 
-
     /**
      * Function used to flatten layer structure of arbitrary depth to a depth of one
      *

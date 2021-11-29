@@ -24,7 +24,7 @@
     ],
     "components": [
         {
-            "name": "SearchLayerActivateAction",
+            "name": "ActivateLayerAction",
             "provides": "map-actions.Action",
             "properties": {
                 "handleStores": [
