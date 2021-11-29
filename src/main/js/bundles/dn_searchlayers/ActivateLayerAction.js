@@ -55,6 +55,8 @@ export default class ActivateLayerAction {
         const domElementList = document.getElementsByClassName("ct-toc__layer-tree-item--" + cssValidId);
         const domElement = domElementList.length? domElementList[0] : undefined;
         domElement?.classList.add("highlight");
+        //tocEntryHighlightTime Einbauen
+        //domElement?.classList.remove("highlight");
     }
 
     /**

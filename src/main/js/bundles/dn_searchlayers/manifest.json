@@ -50,7 +50,7 @@
             "propertiesConstructor": true,
             "properties": {
                 "id": "searchlayersstore",
-                "title": "Layer Suche",
+                "title":"${bundleName}",
                 "description": "Searching for layers",
                 "useIn": [
                     "omnisearch",
