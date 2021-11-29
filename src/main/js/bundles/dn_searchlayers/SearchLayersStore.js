@@ -59,8 +59,3 @@ export default class SearchLayersStore extends SyncInMemoryStore {
     }
 
 }
-
-
-
-
-

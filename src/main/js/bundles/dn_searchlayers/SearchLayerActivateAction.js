@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import async from "apprt-core/async";
 
 export default class SearchLayerActivateAction {
 
@@ -38,8 +39,23 @@ export default class SearchLayerActivateAction {
             return;
         }
 
+        // open toc
+        this._tocToggleTool.set("active", true);
+
         const layer = options.items[0];
         this.changePropsForEveryLayer(layer);
+        async(()=>{
+            this._highlightTocEntry(layer);
+        }, 100);
+    }
+
+    _highlightTocEntry(layer) {
+        // highlight layer entry in toc
+        const tocItemUid = this._buildUID(layer);
+        const cssValidId = tocItemUid.replace(/[^_a-zA-Z0-9-]/g, '_');
+        const domElementList = document.getElementsByClassName("ct-toc__layer-tree-item--" + cssValidId);
+        const domElement = domElementList.length? domElementList[0] : undefined;
+        domElement?.classList.add("highlight");
     }
 
     /**
@@ -53,13 +69,9 @@ export default class SearchLayerActivateAction {
 
         // get toc model item and set open to true
         const tocModelItem = this._getTocModelItem(layer.id);
-        if(tocModelItem) {
+        if (tocModelItem) {
             tocModelItem.open = true;
         }
-
-        // highlight layer entry in toc
-        // const x = document.getElementsByClassName("ct-toc__layer-tree-item--" + layer.id);
-        // x.classList.add("highlight");
 
         // if layer has parent call method again
         if (layer.parent) {
@@ -72,5 +84,29 @@ export default class SearchLayerActivateAction {
         const vm = tocWidget.getVM();
         const operationalRoot = vm.operationalRoot;
         return operationalRoot.findById(id);
+    }
+
+    /**
+     * Method copied from TocItemsToMapSync file in mapapps.
+     *
+     * @param layerOrSublayer
+     * @returns {string|*}
+     * @private
+     */
+    _buildUID(layerOrSublayer) {
+        if (!layerOrSublayer) {
+            return;
+        }
+        const localId = layerOrSublayer.id;
+        if (!this._isSublayer(layerOrSublayer)) {
+            // assumed to be unique
+            return localId;
+        }
+        const uidOfSublayersRoot = this._buildUID(layerOrSublayer.layer);
+        return uidOfSublayersRoot + "$" + localId;
+    }
+
+    _isSublayer(layer) {
+        return layer.hasOwnProperty("layer");
     }
 }

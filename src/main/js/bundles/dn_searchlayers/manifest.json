@@ -14,10 +14,18 @@
         "esri": "~4.20.0",
         "toc": "^4.7.0"
     },
+    "CSS-Themes-Extension": [
+        {
+            "name": "*",
+            "files": [
+                "./css/styles.css"
+            ]
+        }
+    ],
     "components": [
         {
             "name": "SearchLayerActivateAction",
-            "provides":  "map-actions.Action",
+            "provides": "map-actions.Action",
             "properties": {
                 "handleStores": [
                     "searchlayersstore"
@@ -29,6 +37,11 @@
                     "name": "_tocWidget",
                     "providing": "dijit.Widget",
                     "filter": "(widgetRole=tocWidget)"
+                },
+                {
+                    "name": "_tocToggleTool",
+                    "providing": "ct.tools.Tool",
+                    "filter": "(id=tocToggleTool)"
                 }
             ]
         },
