@@ -47,7 +47,7 @@ export default class SearchLayerActivateAction {
      *
      * @param layer Esri Layer which has to made visible, including all parents
      */
-    changePropsForEveryParent(layer) {
+    changePropsForEveryLayer(layer) {
         // set visible property to true
         layer.visible = true;
 
