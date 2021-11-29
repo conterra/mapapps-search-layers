@@ -26,17 +26,9 @@
             },
             "references": [
                 {
-                    "name": "_mapWidgetModel",
-                    "providing": "map-widget.MapWidgetModel"
-                },
-                {
                     "name": "_tocWidget",
                     "providing": "dijit.Widget",
                     "filter": "(widgetRole=tocWidget)"
-                },
-                {
-                    "name": "_tocItemExpander",
-                    "providing": "tocitemexpander"
                 }
             ]
         },
@@ -83,22 +75,6 @@
                     ]
                 }
             },
-            "references": [
-                {
-                    "name": "_mapWidgetModel",
-                    "providing": "map-widget.MapWidgetModel"
-                },
-                {
-                    "name": "_tocWidget",
-                    "providing": "dijit.Widget",
-                    "filter": "(widgetRole=tocWidget)"
-                }
-            ]
-        },
-        {
-            "name": "TocItemExpander",
-            "properties": {},
-            "provides": ["tocitemexpander"],
             "references": [
                 {
                     "name": "_mapWidgetModel",

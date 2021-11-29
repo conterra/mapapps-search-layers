@@ -13,10 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 import ".";
-import "ct/tools/Tool";
 import "./SearchLayersStore";
-import "./TocItemExpander";
+import "ct/tools/Tool";
 
