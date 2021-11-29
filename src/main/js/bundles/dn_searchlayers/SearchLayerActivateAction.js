@@ -39,7 +39,7 @@ export default class SearchLayerActivateAction {
         }
 
         const layer = options.items[0];
-        this.recursiveParentVisibility(layer);
+        this.changePropsForEveryParent(layer);Bildung und Kultur
     }
 
     /**
@@ -47,12 +47,23 @@ export default class SearchLayerActivateAction {
      *
      * @param layer Esri Layer which has to made visible, including all parents
      */
-    recursiveParentVisibility(layer) {
+    changePropsForEveryParent(layer) {
+        // set visible property to true
         layer.visible = true;
+
+        // get toc model item and set open to true
         const tocModelItem = this._getTocModelItem(layer.id);
-        tocModelItem.open = true;
+        if(tocModelItem) {
+            tocModelItem.open = true;
+        }
+
+        // highlight layer entry in toc
+        // const x = document.getElementsByClassName("ct-toc__layer-tree-item--" + layer.id);
+        // x.classList.add("highlight");
+
+        // if layer has parent call method again
         if (layer.parent) {
-            this.recursiveParentVisibility(layer.parent);
+            this.changePropsForEveryParent(layer.parent);
         }
     }
 
