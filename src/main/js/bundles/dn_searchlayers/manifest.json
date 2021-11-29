@@ -27,10 +27,7 @@
             "name": "ActivateLayerAction",
             "provides": "map-actions.Action",
             "properties": {
-                "handleStores": [
-                    "searchlayersstore"
-                ],
-                "activate": true
+                "tocEntryHighlightTime": 5000
             },
             "references": [
                 {
