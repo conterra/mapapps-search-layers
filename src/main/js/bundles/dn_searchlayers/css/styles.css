@@ -13,8 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+.ctAppRoot.spring .toc-window .ct-toc__layers .ct-toc__layer-tree-item.highlight {
+    background-color: #16a085;
+    color: #fff
+}
+.ctAppRoot.summer .toc-window .ct-toc__layers .ct-toc__layer-tree-item.highlight {
+    background-color:#8c0f1a;
+    color: #fff
+}
 .ctAppRoot.autumn .toc-window .ct-toc__layers .ct-toc__layer-tree-item.highlight {
     background-color: #2980b9;
+    color: #fff
+}
+.ctAppRoot.winter .toc-window .ct-toc__layers .ct-toc__layer-tree-item.highlight {
+    background-color: #3c3c3c;
+    color: #fff
+}
+.ctAppRoot.everlasting .toc-window .ct-toc__layers .ct-toc__layer-tree-item.highlight {
+    background-color: #12a5f4;
     color: #fff
 }
 
