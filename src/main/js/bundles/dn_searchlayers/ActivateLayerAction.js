@@ -21,6 +21,7 @@ export default class ActivateLayerAction {
         this.id = "activatelayer";
     }
 
+
     trigger(options) {
         if (!options || !options.items) {
             throw new Error(
@@ -50,6 +51,7 @@ export default class ActivateLayerAction {
     }
 
     _highlightTocEntry(layer) {
+        const tocEntryHighlightTime = this._properties.tocEntryHighlightTime;
         // highlight layer entry in toc
         const tocItemUid = this._buildUID(layer);
         const cssValidId = tocItemUid.replace(/[^_a-zA-Z0-9-]/g, '_');
@@ -60,7 +62,7 @@ export default class ActivateLayerAction {
         //domElement?.classList.remove("highlight");
         async(()=>{
             domElement?.classList.remove("highlight");
-        }, 25000);
+        }, tocEntryHighlightTime);
     }
 
     /**
