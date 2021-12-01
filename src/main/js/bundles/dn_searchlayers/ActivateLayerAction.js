@@ -46,6 +46,7 @@ export default class ActivateLayerAction {
         async(()=>{
             this._highlightTocEntry(layer);
         }, 100);
+
     }
 
     _highlightTocEntry(layer) {
@@ -57,6 +58,9 @@ export default class ActivateLayerAction {
         domElement?.classList.add("highlight");
         //tocEntryHighlightTime Einbauen
         //domElement?.classList.remove("highlight");
+        async(()=>{
+            domElement?.classList.remove("highlight");
+        }, 25000);
     }
 
     /**
