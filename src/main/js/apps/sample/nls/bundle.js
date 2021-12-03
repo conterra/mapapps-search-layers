@@ -74,10 +74,7 @@ module.exports = {
             hybrid: "Aerial (hybrid)"
         }
     },
-    ui:{windowTitle:"My title"},
-    toolsets:{
-        whatDoYouWant: "What do you wnt to do?"
-    },
+
     common: {
         number: "Number",
         area: "Area [ha]",

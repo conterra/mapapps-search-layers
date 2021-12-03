@@ -75,10 +75,7 @@ module.exports = {
             hybrid: "Luftbild (hybrid)"
         }
     },
-    ui:{windowTitle:"Mein Titel"},
-    toolsets:{
-        whatDoYouWant: "Was möchten Sie tun?"
-    },
+
     common: {
         number: "Nummer",
         area: "Fl\xE4che [ha]",
