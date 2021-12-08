@@ -1,8 +1,6 @@
 # Search Layers
 
-A layer can be searched for various attributes such as title, id and description. the search also has an auto-completion feature.
-Layers that match the search query are returned and can be selected.
-If a layer is selected, the corresponding element is expanded and highlighted. The duration of the highlight can be set in the app.json.
+This bundle allows for layers to be searched for various attributes such as title, id and description. Layers that match the search query can be selected and the corresponding toc element is expanded and highlighted. The duration of the highlight can be configured in the app.json.
 
 ## Sample App
 https://demos.conterra.de/mapapps/resources/apps/downloads_searchlayers/index.html
@@ -14,7 +12,7 @@ https://demos.conterra.de/mapapps/resources/apps/downloads_searchlayers/index.ht
 **Requirements:**
 - map.apps 4.12.0 or later
 
-[dn_printingenhanced Documentation](https://github.com/conterra/mapapps-search-layers/tree/master/src/main/js/bundles/dn_searchlayers)
+[dn_searchlayers Documentation](https://github.com/conterra/mapapps-search-layers/tree/master/src/main/js/bundles/dn_searchlayers)
 
 ### Configurable Components of dn_searchlayers:
 ### ActivateLayerAction
