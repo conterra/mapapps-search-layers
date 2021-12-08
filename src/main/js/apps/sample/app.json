@@ -19,7 +19,7 @@
             "map-init",
             "map-preload-2D",
             "toolset",
-            //"banner",
+            "banner",
             "mapnavigation",
             "popups-default",
             "scalebar",
