@@ -1,3 +1,4 @@
+
 /*
  * Copyright (C) 2021 con terra GmbH (info@conterra.de)
  *
@@ -15,9 +16,8 @@
  */
 module.exports = {
     root: {
-        bundleName: "Hello World",
-        bundleDescription: "This bundle prints Hello.",
-        hello: "Hello World"
+        bundleName: "dn_searchlayers",
+        bundleDescription: "The module shows the layers selected by the user by marking them and expanding the correct layers."
     },
     de: true
 };

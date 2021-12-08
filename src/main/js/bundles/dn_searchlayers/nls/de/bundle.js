@@ -1,3 +1,4 @@
+
 /*
  * Copyright (C) 2021 con terra GmbH (info@conterra.de)
  *
@@ -14,7 +15,6 @@
  * limitations under the License.
  */
 module.exports = {
-    bundleName: "Hallo Welt",
-    bundleDescription: "Das Modul gibt Hallo aus.",
-    hello: "Hallo Welt"
+    bundleName: "dn_searchlayers",
+    bundleDescription: "Das Modul zeigt vom Nutzer ausgewählte Layer an, indem es sie markiert und die richtigen layer ausklappt."
 };

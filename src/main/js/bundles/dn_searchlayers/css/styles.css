@@ -1,0 +1,37 @@
+/**
+ * Copyright (C) 2021 con terra GmbH (info@conterra.de)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.ctAppRoot.spring .toc-window .ct-toc__layers .ct-toc__layer-tree-item.highlight {
+    background-color: #16a085;
+    color: #fff
+}
+.ctAppRoot.summer .toc-window .ct-toc__layers .ct-toc__layer-tree-item.highlight {
+    background-color:#8c0f1a;
+    color: #fff
+}
+.ctAppRoot.autumn .toc-window .ct-toc__layers .ct-toc__layer-tree-item.highlight {
+    background-color: #2980b9;
+    color: #fff
+}
+.ctAppRoot.winter .toc-window .ct-toc__layers .ct-toc__layer-tree-item.highlight {
+    background-color: #3c3c3c;
+    color: #fff
+}
+.ctAppRoot.everlasting .toc-window .ct-toc__layers .ct-toc__layer-tree-item.highlight {
+    background-color: #12a5f4;
+    color: #fff
+}
+
