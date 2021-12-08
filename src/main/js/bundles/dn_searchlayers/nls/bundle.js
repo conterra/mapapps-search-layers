@@ -17,8 +17,7 @@
 module.exports = {
     root: {
         bundleName: "dn_searchlayers",
-        bundleDescription: "\n" +
-            "The module shows the layers selected by the user by marking them and expanding the correct layers."
+        bundleDescription: "The module shows the layers selected by the user by marking them and expanding the correct layers."
     },
     de: true
 };
