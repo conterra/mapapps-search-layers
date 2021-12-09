@@ -15,6 +15,6 @@
  * limitations under the License.
  */
 module.exports = {
-    bundleName: "dn_searchlayers",
-    bundleDescription: "Das Modul zeigt vom Nutzer ausgewählte Layer an, indem es sie markiert und die richtigen layer ausklappt."
+    bundleName: "Layersuche",
+    bundleDescription: "Das Bundle fügt einen neuen Suchstore zur App hinzu, der es dem Anwender ermöglicht nach Layern zu suchen."
 };
