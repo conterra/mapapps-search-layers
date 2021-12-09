@@ -4,7 +4,7 @@
     "title": "${bundleName}",
     "description": "${bundleDescription}",
     "vendor": "con terra GmbH",
-    "productName": "devnet-mapapps-search-layer-store",
+    "productName": "devnet-mapapps-search-layers",
     "layer": "module",
     "i18n": [
         "bundle"
