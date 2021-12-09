@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 2021 con terra GmbH (info@conterra.de)
  *
@@ -17,7 +16,11 @@
 module.exports = {
     root: {
         bundleName: "Search Layers",
-        bundleDescription: "This bundle adds a new search store that allows the user to search for layers."
+        bundleDescription: "This bundle adds a new search store that allows the user to search for layers.",
+        ui: {
+            storeTitle: "Layer",
+            storeDescription: "Layer search"
+        }
     },
     de: true
 };

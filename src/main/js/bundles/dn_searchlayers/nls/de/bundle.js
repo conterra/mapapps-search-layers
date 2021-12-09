@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 2021 con terra GmbH (info@conterra.de)
  *
@@ -16,5 +15,9 @@
  */
 module.exports = {
     bundleName: "Layersuche",
-    bundleDescription: "Das Bundle fügt einen neuen Suchstore zur App hinzu, der es dem Anwender ermöglicht nach Layern zu suchen."
+    bundleDescription: "Das Bundle fügt einen neuen Suchstore zur App hinzu, der es dem Anwender ermöglicht nach Layern zu suchen.",
+    ui: {
+        storeTitle: "Layer",
+        storeDescription: "Layersuche"
+    }
 };

@@ -50,8 +50,8 @@
             "propertiesConstructor": true,
             "properties": {
                 "id": "searchlayersstore",
-                "title":"${bundleName}",
-                "description": "Searching for layers",
+                "title": "${ui.storeTitle}",
+                "description": "${ui.storeDescription}",
                 "useIn": [
                     "omnisearch",
                     "search-ui"
