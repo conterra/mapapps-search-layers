@@ -7,22 +7,11 @@ https://demos.conterra.de/mapapps/resources/apps/downloads_searchlayers/index.ht
 
 ![Screenshot Search Layer Sample App](https://github.com/conterra/mapapps-search-layers/blob/master/screenshot.JPG)
 
-
 ## Installation Guide
-**Requirements:**
-- map.apps 4.12.0 or later
+**Requirement: map.apps 4.12.0**
 
 [dn_searchlayers Documentation](https://github.com/conterra/mapapps-search-layers/tree/master/src/main/js/bundles/dn_searchlayers)
 
-### Configurable Components of dn_searchlayers:
-### ActivateLayerAction
-```
-        "dn_searchlayers": {
-            "ActivateLayerAction": {
-                "tocEntryHighlightTime": 5000
-            }
-        }
-```
 ## Development Guide
 ### Define the mapapps remote base
 Before you can run the project you have to define the mapapps.remote.base property in the pom.xml-file:

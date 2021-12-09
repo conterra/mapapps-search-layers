@@ -8,11 +8,16 @@ This bundle allows for layers to be searched for various attributes such as titl
 2. Then you can configure it.
 
 ### Configurable Components of dn_searchlayers:
-### ActivateLayerAction
+
+#### ActivateLayerAction
 ```
-        "dn_searchlayers": {
-            "ActivateLayerAction": {
-                "tocEntryHighlightTime": 5000
-            }
-        }
+"dn_searchlayers": {
+    "ActivateLayerAction": {
+        "tocEntryHighlightTime": 5000
+    }
+}
 ```
+
+| Property                        | Type    | Possible Values | Default | Description                           |
+|---------------------------------|---------|-----------------|---------|---------------------------------------|
+| tocEntryHighlightTime           | Number  |                 | 5000    | Highlight time in toc                 |
