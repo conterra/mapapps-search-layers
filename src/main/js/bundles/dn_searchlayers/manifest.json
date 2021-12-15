@@ -53,7 +53,7 @@
                 "title": "${ui.storeTitle}",
                 "description": "${ui.storeDescription}",
                 "useIn": [
-                    "omnisearch",
+                    "search",
                     "search-ui"
                 ],
                 "omniSearchDefaultLabel": "${title}",
@@ -84,6 +84,10 @@
                     "name": "_tocWidget",
                     "providing": "dijit.Widget",
                     "filter": "(widgetRole=tocWidget)"
+                },
+                {
+                    "name": "searchService",
+                    "providing": "search-api.SearchService"
                 }
             ]
         }
