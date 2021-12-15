@@ -40,6 +40,14 @@
         "dn_searchlayers": {
             "ActivateLayerAction": {
                 "tocEntryHighlightTime": 5000
+            },
+            "SearchLayersStore": {
+                "searchPriority": 1
+            }
+        },
+        "locator-store": {
+            "Config": {
+                "searchPriority": 2
             }
         },
         "themes": {
