@@ -53,13 +53,10 @@
                 "title": "${ui.storeTitle}",
                 "description": "${ui.storeDescription}",
                 "useIn": [
-                    "search",
-                    "search-ui"
+                    "search"
                 ],
-                "omniSearchDefaultLabel": "${title}",
-                "omniSearchSearchAttr": "title",
-                "omniSearchLabelAttr": "title",
-                "omniSearchTypingDelay": 500,
+                "searchAttribute": "title",
+                "searchLabel": "title",
                 "metadata": {
                     "fields": [
                         {
@@ -84,10 +81,6 @@
                     "name": "_tocWidget",
                     "providing": "dijit.Widget",
                     "filter": "(widgetRole=tocWidget)"
-                },
-                {
-                    "name": "searchService",
-                    "providing": "search-api.SearchService"
                 }
             ]
         }
