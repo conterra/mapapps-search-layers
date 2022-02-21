@@ -83,7 +83,7 @@
                         "title": "Straßenkarte (grau)",
                         "thumbnailUrl": "resource('${app}:/images/streets.png')",
                         "selected": true,
-                        "basemap": "gray"
+                        "basemap": "gray-vector"
                     },
                     {
                         "id": "esri_hybrid",
