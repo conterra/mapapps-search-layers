@@ -2,6 +2,10 @@
 
 This bundle allows for layers to be searched for various attributes such as title, id and description. Layers that match the search query can be selected and the corresponding toc element is expanded and highlighted. The duration of the highlight can be configured in the app.json.
 
+## Build Status
+
+[![devnet-bundle-snapshot](https://github.com/conterra/mapapps-search-layers/actions/workflows/devnet-bundle-snapshot.yml/badge.svg)](https://github.com/conterra/mapapps-search-layers/actions/workflows/devnet-bundle-snapshot.yml)
+
 ## Sample App
 https://demos.conterra.de/mapapps/resources/apps/downloads_searchlayers/index.html
 
