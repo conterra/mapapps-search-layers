@@ -62,7 +62,8 @@
                         {
                             "title": "UID",
                             "name": "uid",
-                            "type": "string"
+                            "type": "string",
+                            "identifier": true
                         },
                         {
                             "title": "Layer Name",
