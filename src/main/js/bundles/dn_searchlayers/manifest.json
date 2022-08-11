@@ -57,13 +57,13 @@
                 ],
                 "searchAttribute": "title",
                 "searchLabel": "title",
+                "idProperty": "uid",
                 "metadata": {
                     "fields": [
                         {
                             "title": "UID",
                             "name": "uid",
-                            "type": "string",
-                            "identifier": true
+                            "type": "string"
                         },
                         {
                             "title": "Layer Name",
