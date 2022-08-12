@@ -44,7 +44,7 @@ export default class ActivateLayerAction {
 
         const layer = options.items[0];
         this.changePropsForEveryLayer(layer);
-        async(()=>{
+        async(() => {
             this._highlightTocEntry(layer);
         }, 100);
 
@@ -56,13 +56,13 @@ export default class ActivateLayerAction {
         const tocItemUid = this._buildUID(layer);
         const cssValidId = tocItemUid.replace(/[^_a-zA-Z0-9-]/g, '_');
         const domElementList = document.getElementsByClassName("ct-toc__layer-tree-item--" + cssValidId);
-        const domElement = domElementList.length? domElementList[0] : undefined;
+        const domElement = domElementList.length ? domElementList[0] : undefined;
         domElement?.classList.add("highlight");
         // scroll to highlighted layer
         domElement?.scrollIntoView();
         //tocEntryHighlightTime Einbauen
         //domElement?.classList.remove("highlight");
-        async(()=>{
+        async(() => {
             domElement?.classList.remove("highlight");
         }, tocEntryHighlightTime);
     }
@@ -77,7 +77,7 @@ export default class ActivateLayerAction {
         layer.visible = true;
 
         // get toc model item and set open to true
-        const tocModelItem = this._getTocModelItem(layer.id);
+        const tocModelItem = this._getTocModelItem(layer.uid);
         if (tocModelItem) {
             tocModelItem.open = true;
         }
@@ -88,11 +88,18 @@ export default class ActivateLayerAction {
         }
     }
 
-    _getTocModelItem(id) {
+    _getTocModelItem(uid) {
         const tocWidget = this._tocWidget;
         const vm = tocWidget.getVM();
         const operationalRoot = vm.operationalRoot;
-        return operationalRoot.findById(id);
+
+        let tocItem;
+        operationalRoot.visitTree(it => {
+            if (it.reference.uid === uid) {
+                tocItem = it;
+            }
+        });
+        return tocItem;
     }
 
     /**
