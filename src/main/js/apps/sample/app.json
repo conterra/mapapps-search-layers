@@ -103,20 +103,6 @@
                             "type": "GROUP",
                             "layers": [
                                 {
-                                    "id": "g2",
-                                    "type": "GROUP",
-                                    "layers": [
-                                        {
-                                            "id": "grenzen",
-                                            "title": "Grenzen",
-                                            "type": "AGS_DYNAMIC",
-                                            "url": "https://services.conterra.de/arcgis/rest/services/common/grenzen/MapServer",
-                                            "visible": true
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "g3",
                                     "type": "GROUP",
                                     "layers": [
                                         {
@@ -129,13 +115,6 @@
                                     ]
                                 }
                             ]
-                        },
-                        {
-                            "id": "grenzen",
-                            "title": "Grenzen",
-                            "type": "AGS_DYNAMIC",
-                            "url": "https://services.conterra.de/arcgis/rest/services/common/grenzen/MapServer",
-                            "visible": true
                         },
                         {
                             "id": "koeln2",
