@@ -32,7 +32,7 @@ export default class SearchLayersStore extends SyncInMemoryStore {
         return layers.flatten(item => item.layers || item.sublayers);
     }
 
-    query(query = {}, options = {}) {
+    query(query = {}) {
         const mapWidgetModel = this._mapWidgetModel;
         const layers = mapWidgetModel.map.layers;
         const flattenLayers = this._getFlattenLayers(layers);
@@ -43,8 +43,8 @@ export default class SearchLayersStore extends SyncInMemoryStore {
             const idContainsSearchString = layer.id.toString().includes(searchString);
             const descriptionContainsSearchString = layer.description?.toLowerCase().includes(searchString.toLowerCase());
             const metadataContainsSearchString = layer.metadata?.toLowerCase().includes(searchString);
-            const copyrightContainsSearchString = layer.copyright?.toLowerCase().includes(searchString)
-            const tagsContainsSearchString = layer.tags?.toString()?.toLowerCase().includes(searchString)
+            const copyrightContainsSearchString = layer.copyright?.toLowerCase().includes(searchString);
+            const tagsContainsSearchString = layer.tags?.toString()?.toLowerCase().includes(searchString);
 
             const visibleInToc = layer.listMode === "show";
 
@@ -56,7 +56,7 @@ export default class SearchLayersStore extends SyncInMemoryStore {
         return QueryResults(results.toArray());
     }
 
-    get(uid, options = {}) {
+    get(uid) {
         const mapWidgetModel = this._mapWidgetModel;
         const layers = mapWidgetModel.map.layers;
         const flattenLayers = this._getFlattenLayers(layers);
