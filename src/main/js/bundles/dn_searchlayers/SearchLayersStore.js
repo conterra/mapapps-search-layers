@@ -41,10 +41,16 @@ export default class SearchLayersStore extends SyncInMemoryStore {
         const results = flattenLayers.filter((layer) => {
             const titleContainsSearchString = layer.title?.toLowerCase().includes(searchString.toLowerCase());
             const idContainsSearchString = layer.id.toString().includes(searchString);
-            const descriptionContainsSearchString =
-                layer.description?.toLowerCase().includes(searchString.toLowerCase());
+            const descriptionContainsSearchString = layer.description?.toLowerCase().includes(searchString.toLowerCase());
+            const metadataContainsSearchString = layer.metadata?.toLowerCase().includes(searchString);
+            const copyrightContainsSearchString = layer.copyright?.toLowerCase().includes(searchString)
+            const tagsContainsSearchString = layer.tags?.toString()?.toLowerCase().includes(searchString)
 
-            return titleContainsSearchString || idContainsSearchString || descriptionContainsSearchString;
+            const visibleInToc = layer.listMode === "show";
+
+            return ((titleContainsSearchString || idContainsSearchString ||
+                     descriptionContainsSearchString || metadataContainsSearchString ||
+                     copyrightContainsSearchString || tagsContainsSearchString) && visibleInToc);
         });
 
         return QueryResults(results.toArray());
