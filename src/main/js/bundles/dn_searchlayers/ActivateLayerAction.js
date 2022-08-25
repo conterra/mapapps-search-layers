@@ -21,7 +21,6 @@ export default class ActivateLayerAction {
         this.id = "activatelayer";
     }
 
-
     trigger(options) {
         if (!options || !options.items) {
             throw new Error(
@@ -43,17 +42,17 @@ export default class ActivateLayerAction {
         this._tocToggleTool.set("active", true);
 
         const layer = options.items[0];
-        this.changePropsForEveryLayer(layer);
+        this.#changePropsForEveryLayer(layer);
         async(() => {
-            this._highlightTocEntry(layer);
+            this.#highlightTocEntry(layer);
         }, 100);
 
     }
 
-    _highlightTocEntry(layer) {
+    #highlightTocEntry(layer) {
         const tocEntryHighlightTime = this._properties.tocEntryHighlightTime;
         // highlight layer entry in toc
-        const tocItemUid = this._buildUID(layer);
+        const tocItemUid = this.#buildUID(layer);
         const cssValidId = tocItemUid.replace(/[^_a-zA-Z0-9-]/g, '_');
         const domElementList = document.getElementsByClassName("ct-toc__layer-tree-item--" + cssValidId);
         const domElement = domElementList.length ? domElementList[0] : undefined;
@@ -73,23 +72,23 @@ export default class ActivateLayerAction {
      *
      * @param layer Esri Layer which has to made visible, including all parents
      */
-    changePropsForEveryLayer(layer) {
+    #changePropsForEveryLayer(layer) {
         // set visible property to true
         layer.visible = true;
 
         // get toc model item and set open to true
-        const tocModelItem = this._getTocModelItem(layer.uid);
+        const tocModelItem = this.#getTocModelItem(layer.uid);
         if (tocModelItem) {
             tocModelItem.open = true;
         }
 
         // if layer has parent call method again
         if (layer.parent) {
-            this.changePropsForEveryLayer(layer.parent);
+            this.#changePropsForEveryLayer(layer.parent);
         }
     }
 
-    _getTocModelItem(uid) {
+    #getTocModelItem(uid) {
         const tocWidget = this._tocWidget;
         const vm = tocWidget.getVM();
         const operationalRoot = vm.operationalRoot;
@@ -110,20 +109,20 @@ export default class ActivateLayerAction {
      * @returns {string|*}
      * @private
      */
-    _buildUID(layerOrSublayer) {
+    #buildUID(layerOrSublayer) {
         if (!layerOrSublayer) {
             return;
         }
         const localId = layerOrSublayer.id;
-        if (!this._isSublayer(layerOrSublayer)) {
+        if (!this.#isSublayer(layerOrSublayer)) {
             // assumed to be unique
             return localId;
         }
-        const uidOfSublayersRoot = this._buildUID(layerOrSublayer.layer);
+        const uidOfSublayersRoot = this.#buildUID(layerOrSublayer.layer);
         return uidOfSublayersRoot + "$" + localId;
     }
 
-    _isSublayer(layer) {
+    #isSublayer(layer) {
         return layer.hasOwnProperty("layer");
     }
 }
