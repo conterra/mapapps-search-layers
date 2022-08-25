@@ -59,9 +59,10 @@ export default class ActivateLayerAction {
         const domElement = domElementList.length ? domElementList[0] : undefined;
         domElement?.classList.add("highlight");
         // scroll to highlighted layer
-        domElement?.scrollIntoView();
-        //tocEntryHighlightTime Einbauen
-        //domElement?.classList.remove("highlight");
+        async(() => {
+            domElement?.scrollIntoView();
+        }, 500);
+        // remove highlight from layer entry after a configurable time
         async(() => {
             domElement?.classList.remove("highlight");
         }, tocEntryHighlightTime);
