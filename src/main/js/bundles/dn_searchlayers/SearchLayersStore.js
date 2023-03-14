@@ -39,6 +39,10 @@ export default class SearchLayersStore extends SyncInMemoryStore {
         const searchString = query?.title?.$suggest;
 
         const results = flattenLayers.filter((layer) => {
+            // handle malformed searchStrings
+            if (!searchString){
+                return false;
+            }
             const titleContainsSearchString = layer.title?.toLowerCase().includes(searchString.toLowerCase());
             const idContainsSearchString = layer.id.toString().includes(searchString);
             const descriptionContainsSearchString = layer.description?.toLowerCase().includes(searchString.toLowerCase());
