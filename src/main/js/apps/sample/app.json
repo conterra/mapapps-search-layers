@@ -115,6 +115,28 @@
                             "id": "cologne",
                             "url":"https://services.conterra.de/arcgis/rest/services/common/koeln/MapServer",
                             "type": "AGS_DYNAMIC"
+                        },
+                        {
+                            "id": "kleinrumigegli",
+                            "url": "https://geoweb1.digistadtdo.de/OWSServiceProxy/kleinraeumige_gliederung.ows",
+                            "type": "WMS",
+                            "title": "Kleinr\u00E4umige Gliederung",
+                            "description": "Kleinr\u00E4umige Gliederung",
+                            "visible": true,
+                            "popupEnabled": false,
+                            "legendEnabled": false,
+                            "sublayers": [
+                                {
+                                    "name": "Stadtgrenze",
+                                    "title": "Stadtgrenze",
+                                    "visible": true
+                                },
+                                {
+                                    "name": "Stadtbezirke",
+                                    "title": "Stadtbezirke",
+                                    "visible": true
+                                }
+                            ]
                         }
                     ],
                     "ground": {

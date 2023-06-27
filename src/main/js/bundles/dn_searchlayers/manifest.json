@@ -57,12 +57,12 @@
                 ],
                 "searchAttribute": "title",
                 "searchLabel": "title",
-                "idProperty": "uid",
+                "idProperty": "searchId",
                 "metadata": {
                     "fields": [
                         {
-                            "title": "UID",
-                            "name": "uid",
+                            "title": "Search ID",
+                            "name": "searchId",
                             "type": "string"
                         },
                         {

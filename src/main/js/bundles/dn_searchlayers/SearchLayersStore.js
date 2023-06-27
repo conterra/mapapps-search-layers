@@ -36,6 +36,13 @@ export default class SearchLayersStore extends SyncInMemoryStore {
         const mapWidgetModel = this._mapWidgetModel;
         const layers = mapWidgetModel.map.layers;
         const flattenLayers = this._getFlattenLayers(layers);
+        flattenLayers.forEach((layer)=>{
+            if(layer.layer){
+                layer.searchId = layer.layer.id + "/" + layer.id;}
+            else{
+                layer.searchId = layer.id;
+            }
+        });
         const searchString = query?.title?.$suggest;
 
         const results = flattenLayers.filter((layer) => {
@@ -50,7 +57,10 @@ export default class SearchLayersStore extends SyncInMemoryStore {
             const copyrightContainsSearchString = layer.copyright?.toLowerCase().includes(searchString);
             const tagsContainsSearchString = layer.tags?.toString()?.toLowerCase().includes(searchString);
 
-            const visibleInToc = layer.listMode === "show";
+            let visibleInToc = layer.listMode === "show";
+            if(layer.listMode === undefined && layer.layer) {
+                visibleInToc = layer.layer.listMode === "show";
+            }
 
             return ((titleContainsSearchString || idContainsSearchString ||
                      descriptionContainsSearchString || metadataContainsSearchString ||
@@ -60,11 +70,11 @@ export default class SearchLayersStore extends SyncInMemoryStore {
         return QueryResults(results.toArray());
     }
 
-    get(uid) {
+    get(searchId) {
         const mapWidgetModel = this._mapWidgetModel;
         const layers = mapWidgetModel.map.layers;
         const flattenLayers = this._getFlattenLayers(layers);
-        return flattenLayers.items.find(item => item.uid === uid);
+        return flattenLayers.items.find(item => item.searchId === searchId);
     }
 
 }
