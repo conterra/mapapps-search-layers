@@ -6,11 +6,13 @@
         ],
         "allowedBundles": [
             "system",
+            "console",
             "notifier",
             "splashscreen",
             "templatelayout",
             "template-seasons",
             "theme-autumn",
+            "theme-everlasting",
             "map-init",
             "map-preload-2D",
             "toolset",
@@ -19,6 +21,7 @@
             "popups-default",
             "scalebar",
             "locateme",
+            "parameter-url",
             "search-ui",
             "locator-store",
             "toc",
@@ -130,9 +133,17 @@
                 }
             }
         },
+        "themes": {
+            "ThemeModel": {
+                "_selectedTheme": "autumn"
+            },
+            "ThemeSelector": {
+                "componentEnabled": true
+            }
+        },
         "toc": {
             "Config": {
-                "showBasemaps": true,
+                "showBasemaps" : true,
                 "showLayerLegend": true
             }
         },
