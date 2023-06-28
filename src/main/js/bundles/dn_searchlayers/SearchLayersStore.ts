@@ -14,8 +14,9 @@
 /// limitations under the License.
 ///
 
-import { SyncInMemoryStore, ConstructorOptions } from "store-api/InMemoryStore";
 import QueryResults from "store-api/QueryResults";
+
+import { SyncInMemoryStore, ConstructorOptions } from "store-api/InMemoryStore";
 import { ComplexQueryExpression, ResultItems } from "store-api/api";
 import { InjectedReference } from "apprt-core/InjectedReference";
 import { MapWidgetModel } from "map-widget/api";
@@ -29,13 +30,14 @@ export default class SearchLayersStore extends SyncInMemoryStore<ConstructorOpti
      * @param layers Collection of map layers
      * @returns esri/core/Collection  containing layer and all its sublayers
      */
-    _getFlattenLayers(layers: __esri.Collection<__esri.Layer>): __esri.Collection<__esri.Layer> {
+    private getFlattenLayers(layers: __esri.Collection<__esri.Layer>): __esri.Collection<__esri.Layer> {
         return layers.flatten(item => item.layers || item.sublayers);
     }
-    query(query:ComplexQueryExpression = {}): ResultItems<ConstructorOptions<any>> {
+
+    public query(query:ComplexQueryExpression = {}): ResultItems<ConstructorOptions<any>> {
         const mapWidgetModel = this._mapWidgetModel;
         const layers = mapWidgetModel.map.layers;
-        const flattenLayers = this._getFlattenLayers(layers);
+        const flattenLayers = this.getFlattenLayers(layers);
         flattenLayers.forEach((layer) => {
             if (layer.layer) {
                 layer.searchId = `${layer.layer.id}/${layer.id}`;
@@ -69,11 +71,11 @@ export default class SearchLayersStore extends SyncInMemoryStore<ConstructorOpti
         });
         return QueryResults(results.toArray());
     }
-    // ist void richtig?
-    get(searchId: string):__esri.Layer {
+
+    public get(searchId: string):__esri.Layer {
         const mapWidgetModel = this._mapWidgetModel;
         const layers = mapWidgetModel.map.layers;
-        const flattenLayers = this._getFlattenLayers(layers);
+        const flattenLayers = this.getFlattenLayers(layers);
         return flattenLayers.find((item: { searchId: any; }) => item.searchId === searchId);
     }
 
