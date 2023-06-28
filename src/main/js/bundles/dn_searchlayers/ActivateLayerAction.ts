@@ -15,19 +15,23 @@
 ///
 
 import async from "apprt-core/async";
+
 import { InjectedReference } from "apprt-core/InjectedReference";
 
 export default class ActivateLayerAction {
     public id: string;
+
     private _tocToggleTool: InjectedReference<any>;
     private _properties: InjectedReference<Record<string, any>>;
     private _tocWidget: InjectedReference<any>;
 
-    constructor() {
+    public constructor() {
         this.id = "activatelayer";
     }
 
-    trigger(options:any):void {
+    public trigger(options: any): void {
+        const highlightDelay = 100;
+
         if (!options || !options.items) {
             throw new Error(
                 "SearchLayerActivateAction.trigger: " +
@@ -51,22 +55,23 @@ export default class ActivateLayerAction {
         this.changePropsForEveryLayer(layer);
         async(() => {
             this.highlightTocEntry(layer);
-        }, 100);
-
+        }, highlightDelay);
     }
 
-    private highlightTocEntry(layer:any) {
+    private highlightTocEntry(layer: any): void {
+        const scrollDelay = 500;
+
         const tocEntryHighlightTime = this._properties.tocEntryHighlightTime;
         // highlight layer entry in toc
-        const tocItemUid:string = this.buildUID(layer);
-        const cssValidId: string= tocItemUid.replace(/[^_a-zA-Z0-9-]/g, '_');
-        const domElementList: HTMLCollectionOf<Element>= document.getElementsByClassName("ct-toc__layer-tree-item--" + cssValidId);
+        const tocItemUid: string = this.buildUID(layer);
+        const cssValidId: string = tocItemUid.replace(/[^_a-zA-Z0-9-]/g, '_');
+        const domElementList: HTMLCollectionOf<Element> = document.getElementsByClassName("ct-toc__layer-tree-item--" + cssValidId);
         const domElement: Element = domElementList.length ? domElementList[0] : undefined;
         domElement?.classList.add("highlight");
         // scroll to highlighted layer
         async(() => {
             domElement?.scrollIntoView();
-        }, 500);
+        }, scrollDelay);
         // remove highlight from layer entry after a configurable time
         async(() => {
             domElement?.classList.remove("highlight");
@@ -78,7 +83,7 @@ export default class ActivateLayerAction {
      *
      * @param layer Esri Layer which has to made visible, including all parents
      */
-    private changePropsForEveryLayer(layer:any) {
+    private changePropsForEveryLayer(layer: any): void {
         // set visible property to true
         layer.visible = true;
 
@@ -94,17 +99,18 @@ export default class ActivateLayerAction {
         }
     }
 
-    private getTocModelItem(uid:any) {
+    private getTocModelItem(uid: any): Object {
         const tocWidget = this._tocWidget;
         const vm = tocWidget.getVM();
         const operationalRoot: any = vm.operationalRoot;
 
         let tocItem: any;
-        operationalRoot.visitTree((it: { reference: { uid: any; }; })=> {
+        operationalRoot.visitTree((it: { reference: { uid: any; }; }) => {
             if (it.reference.uid === uid) {
                 tocItem = it;
             }
         });
+
         return tocItem;
     }
 
@@ -115,7 +121,7 @@ export default class ActivateLayerAction {
      * @returns {string|*}
      * @private
      */
-    private buildUID(layerOrSublayer: { id: string; layer: any; }) {
+    private buildUID(layerOrSublayer: { id: string; layer: any; }): string {
         if (!layerOrSublayer) {
             return;
         }
@@ -128,7 +134,7 @@ export default class ActivateLayerAction {
         return uidOfSublayersRoot + "$" + localId;
     }
 
-    private isSublayer(layer: { hasOwnProperty: (arg0: string) => any; }) {
+    private isSublayer(layer: { hasOwnProperty: (arg0: string) => any; }): boolean {
         // eslint-disable-next-line no-prototype-builtins
         return layer.hasOwnProperty("layer");
     }
