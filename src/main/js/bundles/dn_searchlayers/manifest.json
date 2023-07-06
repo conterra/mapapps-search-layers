@@ -6,6 +6,7 @@
     "vendor": "con terra GmbH",
     "productName": "devnet-mapapps-search-layers",
     "layer": "module",
+    "main": "",
     "i18n": [
         "bundle"
     ],
