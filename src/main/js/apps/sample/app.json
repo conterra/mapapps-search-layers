@@ -27,9 +27,6 @@
             "toc",
             "dn_searchlayers"
         ],
-        "require": [
-            "${app}.app"
-        ],
         "i18n": [
             "bundle"
         ]
