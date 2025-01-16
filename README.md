@@ -9,7 +9,7 @@ This bundle allows for layers to be searched for various attributes such as titl
 ## Sample App
 https://demos.conterra.de/mapapps/resources/apps/downloads_searchlayers/index.html
 
-![Screenshot Search Layer Sample App](https://github.com/conterra/mapapps-search-layers/blob/master/screenshot.JPG)
+![Screenshot Search Layer Sample App](https://github.com/conterra/mapapps-search-layers/blob/main/screenshot.JPG)
 
 ## Installation Guide
 **Requirement: map.apps 4.12.0**
