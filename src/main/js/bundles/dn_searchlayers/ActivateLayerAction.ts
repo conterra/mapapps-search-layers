@@ -16,7 +16,7 @@
 
 import async from "apprt-core/async";
 
-import { InjectedReference } from "apprt-core/InjectedReference";
+import type { InjectedReference } from "apprt-core/InjectedReference";
 
 export default class ActivateLayerAction {
     public id: string;
@@ -29,7 +29,7 @@ export default class ActivateLayerAction {
         this.id = "activatelayer";
     }
 
-    public trigger(options: any): void {
+    public async trigger(options: any): Promise<void> {
         const highlightDelay = 100;
 
         if (!options || !options.items) {
@@ -40,19 +40,14 @@ export default class ActivateLayerAction {
             );
         }
 
-        if (!options.items.length) {
+        if (!options.items.length || options.source?.id !== "searchlayersstore") {
             return;
         }
 
-        if (options.source?.id !== "searchlayersstore") {
-            return;
-        }
-
-        // open toc
+        const layer = await options.items[0].load();
         this._tocToggleTool.set("active", true);
-
-        const layer = options.items[0];
         this.changePropsForEveryLayer(layer);
+
         async(() => {
             this.highlightTocEntry(layer);
         }, highlightDelay);
