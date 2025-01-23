@@ -150,7 +150,7 @@
                 <plugin>
                     <groupId>de.conterra.maven</groupId>
                     <artifactId>setproperties-maven-plugin</artifactId>
-                    <version>1.0.2</version>
+                    <version>1.0.5</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -475,9 +475,9 @@
         </plugins>
     </build>
     <scm>
-        <connection>scm:git:https://github.com/conterra/mapapps-search-layers.git</connection>
-        <developerConnection>scm:git:https://github.com/conterra/mapapps-search-layers.git</developerConnection>
-        <url>https://github.com/conterra/mapapps-search-layers</url>
+        <connection>scm:git:https://github.com/conterra/mapapps-devnet-blueprint.git</connection>
+        <developerConnection>scm:git:https://github.com/conterra/mapapps-devnet-blueprint.git</developerConnection>
+        <url>https://github.com/conterra/mapapps-devnet-blueprint</url>
         <tag>HEAD</tag>
     </scm>
     <distributionManagement>
@@ -495,12 +495,12 @@
         <root.build.outputPath>${project.build.directory}/webapp</root.build.outputPath>
         <js.build.outputPath>${root.build.outputPath}/js</js.build.outputPath>
 
-        <mapapps.version>4.18.3</mapapps.version>
+        <mapapps.version>4.19.0</mapapps.version>
         <!-- JS lib versions -->
         <apprt.version>${mapapps.version}</apprt.version>
 
         <!-- java lib versions -->
-        <ct.jsregistry.version>2.1.3</ct.jsregistry.version>
+        <ct.jsregistry.version>2.1.4</ct.jsregistry.version>
 
         <!-- the default app, replaced in the *.html files to switch app names-->
         <default.app.name>sample</default.app.name>
