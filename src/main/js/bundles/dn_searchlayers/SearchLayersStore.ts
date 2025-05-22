@@ -52,22 +52,27 @@ export default class SearchLayersStore extends SyncInMemoryStore<ConstructorOpti
             if (!searchString) {
                 return false;
             }
-            const titleContainsSearchString = layer.title?.toLowerCase().includes(searchString.toLowerCase());
-            const idContainsSearchString = layer.id.toString().includes(searchString);
-            // eslint-disable-next-line max-len
-            const descriptionContainsSearchString = layer.description?.toLowerCase().includes(searchString.toLowerCase());
-            const metadataContainsSearchString = layer.metadata?.toLowerCase().includes(searchString);
-            const copyrightContainsSearchString = layer.copyright?.toLowerCase().includes(searchString);
-            const tagsContainsSearchString = layer.tags?.toString()?.toLowerCase().includes(searchString);
+
+            const searchResults = [
+                contains(layer.title, searchString),
+                contains(layer.id.toString(), searchString),
+                contains(layer.description, searchString),
+                contains(layer.metadata, searchString),
+                contains(layer.copyright, searchString),
+                contains(layer.tags?.toString(), searchString),
+                contains(layer.sourceJSON?.documentInfo?.Keywords, searchString)
+            ];
+
+            function contains(haystack: string, needle: string): boolean {
+                return haystack.toLowerCase().includes(needle.toLowerCase());
+            }
 
             let visibleInToc = layer.listMode === "show";
             if (layer.listMode === undefined && layer.layer) {
                 visibleInToc = layer.layer.listMode === "show";
             }
 
-            return ((titleContainsSearchString || idContainsSearchString ||
-                descriptionContainsSearchString || metadataContainsSearchString ||
-                copyrightContainsSearchString || tagsContainsSearchString) && visibleInToc);
+            return (searchResults.some(result => result) && visibleInToc);
         });
         return QueryResults(results.toArray());
     }
