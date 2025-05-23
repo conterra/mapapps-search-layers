@@ -1,6 +1,6 @@
 {
     "name": "dn_searchlayers",
-    "version": "1.0.7",
+    "version": "1.0.8-SNAPSHOT",
     "title": "${bundleName}",
     "description": "${bundleDescription}",
     "vendor": "con terra GmbH",
