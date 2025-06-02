@@ -64,6 +64,9 @@ export default class SearchLayersStore extends SyncInMemoryStore<ConstructorOpti
             ];
 
             function contains(haystack: string, needle: string): boolean {
+                if (!haystack || !needle) {
+                    return false;
+                }
                 return haystack.toLowerCase().includes(needle.toLowerCase());
             }
 
