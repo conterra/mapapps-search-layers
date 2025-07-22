@@ -15,6 +15,7 @@
  */
 module.exports = {
     root: {
+        apptitle: "DevNet Bundle Blueprint",
         map: {
             koeln1: {
                 title: "Basic Data",
@@ -69,13 +70,16 @@ module.exports = {
                 }
             },
             basemaps: {
-                street: "Street Map (gray)",
-                street2: "Street Map",
+                gray: "Street Map (gray)",
+                streets: "Street Map",
                 topo: "Topographical Map",
                 hybrid: "Aerial (hybrid)"
             }
         },
-
+        tools: {
+            drawerLeft: "Tools",
+            measuring: "Measuring Tools"
+        },
         common: {
             number: "Number",
             area: "Area [ha]",
@@ -92,5 +96,5 @@ module.exports = {
             type: "Type"
         }
     },
-    de: true
+    "de": true
 };
