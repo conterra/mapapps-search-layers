@@ -7,7 +7,7 @@ This bundle allows for layers to be searched for various attributes such as titl
 [![devnet-bundle-snapshot](https://github.com/conterra/mapapps-search-layers/actions/workflows/devnet-bundle-snapshot.yml/badge.svg)](https://github.com/conterra/mapapps-search-layers/actions/workflows/devnet-bundle-snapshot.yml)
 
 ## Sample App
-https://demos.conterra.de/mapapps/resources/apps/downloads_searchlayers/index.html
+https://demos.conterra.de/mapapps/resources/apps/public_demo_searchlayers/index.html
 
 ![Screenshot Search Layer Sample App](https://github.com/conterra/mapapps-search-layers/blob/main/screenshot.png)
 
