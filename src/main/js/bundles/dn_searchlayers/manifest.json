@@ -11,11 +11,10 @@
         "bundle"
     ],
     "dependencies": {
-        "store-api": "^4.12.0",
-        "esri": "^4.20.0",
-        "toc": "^4.12.0"
+        "store-api": "^4.20.0",
+        "toc": "^4.20.0"
     },
-    "CSS-Themes-Extension": [
+    "cssThemesExtension": [
         {
             "name": "*",
             "files": [
