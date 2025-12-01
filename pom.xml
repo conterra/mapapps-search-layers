@@ -22,7 +22,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.conterra.devnet</groupId>
     <artifactId>mapapps-search-layers</artifactId>
-    <version>1.0.8-SNAPSHOT</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
     <dependencyManagement>
         <dependencies>
