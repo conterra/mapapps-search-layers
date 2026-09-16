@@ -332,6 +332,7 @@
                             "title": "${map.koeln3.title}",
                             "type": "GROUP",
                             "visible": true,
+                            "listMode": "hide-children",
                             "layers": [
                                 {
                                     "title": "${map.koeln3.sights.title}",

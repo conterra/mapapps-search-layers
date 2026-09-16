@@ -70,9 +70,19 @@ export default class SearchLayersStore extends SyncInMemoryStore<ConstructorOpti
                 return haystack.toLowerCase().includes(needle.toLowerCase());
             }
 
-            let visibleInToc = layer.listMode === "show";
-            if (layer.listMode === undefined && layer.layer) {
-                visibleInToc = layer.layer.listMode === "show";
+            const listMode = layer.listMode ?? (layer as any).layer?.listMode;
+            const visibleInToc = (listMode === "show" || listMode === "hide-children")
+                 && !isHiddenByParent(layer);
+
+            function isHiddenByParent(layer: any): boolean {
+                let parent = layer.parent;
+                while (parent) {
+                    if (parent.listMode === "hide-children" || parent.listMode === "hide") {
+                        return true;
+                    }
+                    parent = parent.parent;
+                }
+                return false;
             }
 
             return (searchResults.some(result => result) && visibleInToc);
