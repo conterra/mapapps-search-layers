@@ -34,6 +34,23 @@ export default class SearchLayersStore extends SyncInMemoryStore<ConstructorOpti
         return layers.flatten(item => item.layers || item.sublayers);
     }
 
+    /**
+     * Checks whether a layer is hidden in the TOC by one of its ancestors
+     *
+     * @param layer Layer or sublayer to check
+     * @returns true if any ancestor has listMode "hide-children" or "hide"
+     */
+    private isHiddenByParent(layer: any): boolean {
+        let parent = layer.parent;
+        while (parent) {
+            if (parent.listMode === "hide-children" || parent.listMode === "hide") {
+                return true;
+            }
+            parent = parent.parent;
+        }
+        return false;
+    }
+
     public query(query:ComplexQueryExpression = {}): ResultItems<ConstructorOptions<any>> {
         const mapWidgetModel = this._mapWidgetModel;
         const layers = mapWidgetModel.map.layers;
@@ -70,10 +87,9 @@ export default class SearchLayersStore extends SyncInMemoryStore<ConstructorOpti
                 return haystack.toLowerCase().includes(needle.toLowerCase());
             }
 
-            let visibleInToc = layer.listMode === "show";
-            if (layer.listMode === undefined && layer.layer) {
-                visibleInToc = layer.layer.listMode === "show";
-            }
+            const listMode = layer.listMode ?? (layer as any).layer?.listMode;
+            const visibleInToc = (listMode === "show" || listMode === "hide-children")
+                 && !this.isHiddenByParent(layer);
 
             return (searchResults.some(result => result) && visibleInToc);
         });
